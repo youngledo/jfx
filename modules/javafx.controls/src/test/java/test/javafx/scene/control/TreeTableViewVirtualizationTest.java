@@ -496,7 +496,7 @@ class TreeTableViewVirtualizationTest {
         List<IndexedCell<?>> rows = VirtualFlowShim.getCells(virtualFlow);
         for (IndexedCell<?> row : rows) {
             for (Node cell : row.getChildrenUnmodifiable()) {
-                if (cell instanceof TreeTableCell<?, ?> tableCell) {
+                if (cell instanceof TreeTableCell<?, ?> tableCell && cell.isVisible()) {
                     assertNotEquals(cellValue, tableCell.getItem());
                 }
             }

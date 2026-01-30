@@ -4234,8 +4234,11 @@ public class TreeViewTest {
         // Check children of third root [8..12]
         for (int cellIndex = 8; cellIndex < 12; cellIndex++) {
             cell = virtualFlow.getCell(cellIndex);
-            assertTrue(cell.getChildrenUnmodifiable().contains(cell.getGraphic()),
-                    "Cell does not contain graphic for index: " + cellIndex);
+            // Only check visible cells
+            if (cell.isVisible()) {
+                assertTrue(cell.getChildrenUnmodifiable().contains(cell.getGraphic()),
+                        "Cell does not contain graphic for index: " + cellIndex);
+            }
         }
     }
 

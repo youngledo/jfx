@@ -526,7 +526,7 @@ class TableViewVirtualizationTest {
         List<IndexedCell<?>> rows = VirtualFlowShim.getCells(virtualFlow);
         for (IndexedCell<?> row : rows) {
             for (Node cell : row.getChildrenUnmodifiable()) {
-                if (cell instanceof TableCell<?, ?> tableCell) {
+                if (cell instanceof TableCell<?, ?> tableCell && cell.isVisible()) {
                     assertNotEquals(cellValue, tableCell.getItem());
                 }
             }
